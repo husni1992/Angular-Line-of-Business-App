@@ -1,0 +1,43 @@
+<div class="container" style="padding-top:20px;margin-left:5px;">
+    <div class="panel panel-primary">
+    <div class="panel-heading">Husny Products Store
+      <input style=" float: right;" type="text" ng-model="searchString" placeholder="Enter your search terms"/>
+      </div>
+       
+        <table class="table" style="table-layout:fixed">
+            <thread>
+                 <tr>
+                     <th>Image <a href title="Click to {{showornot}} image" ng-click="vm.toggleImage()">{{vm.showImage ? "Hide" : "Show"}}</button></th>
+                     <th>Id</th>
+                     <th>Name</th>
+                     <th>Code</th>
+                     <th>Description</th>
+                     <th>Price</th>
+                     <th>Options</th>
+                 </tr>
+            </thread>
+            <tbody>
+                 <tr ng-repeat="product in vm.products">
+                     <td>
+                         <img ng-if="vm.showImage" ng-src="{{product.imageUrl}}" title="{{product.productName}}" style="width:50px; margin:3px;"> 
+                     </td>
+                     <td>{{product.productId}}</td>
+                     <td>
+                         <a ui-sref="productDetail({productId: product.productId})">
+<!--                         <a href="#/productDetails/{{product.productId}}">-->
+                         {{product.productName}}</a>
+                     </td>
+                     <td>{{product.productCode}}</td>
+                     <td>{{product.description}}</td>
+                     <td>{{product.price |currency}}</td>
+                     <td>
+                         <a class="btn btn-primary"
+                            ui-sref="productEdit.info({productId: product.productId})">
+                            Edit
+                         </a>
+                     </td>
+                 </tr>
+            </tbody>
+        </table>
+    </div>
+</div>  

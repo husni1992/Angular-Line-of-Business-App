@@ -1,0 +1,36 @@
+<div class="panel panel-primary">
+    <div class="panel-heading" ng-class="{'bolt':bolt, 'underline': underline, 'Italic': Italic}">
+        {{vm.title}}
+    </div>
+    <div class="panel-body" ng-class="{'itsRed': vm.blue, 'itsBlue': !vm.blue}">
+        <div class="wizard">
+           <a ui-sref=".info"
+               ui-sref-active="active">
+               Basic Information
+           </a>           
+           <a ui-sref=".price"
+               ui-sref-active="active">
+               Price Details
+           </a>           
+           <a ui-sref=".tags"
+               ui-sref-active="active">
+               Search Tags
+           </a>           
+        </div>
+        <div ui-view></div>
+    </div>
+    <div class="panel-footer" style="margin-top:0px;">
+        <a class="btn btn-default"
+            ui-sref="productList"
+            style="width:80px;">
+             <i class="glyphicon glyphicon-arrow-left"></i>
+             Back
+         </a>
+        <div class="btn-group" style="padding-left:800px">
+            <button ng-click="vm.toggleFormColor()" ng-class="{'itsRed': vm.blue, 'itsBlue': !vm.blue}">{{vm.blue? 'Blue':'Red'}}</button>
+            <input type="checkbox" ng-model="bolt">Bolt
+            <input type="checkbox" ng-model="underline">Underline
+            <input type="checkbox" ng-model="Italic">Italic
+        </div>
+    </div>    
+</div>

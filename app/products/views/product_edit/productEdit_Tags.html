@@ -1,0 +1,46 @@
+<form class="form-horizontal" role="form" name="productTagsForm">
+     <fieldset>
+         <legend>Product search tag</legend>
+         <div class="form-group">
+        <div class="col-md-6">
+           <div class="input-group">
+            <input class="form-control" type="text" id="searchtags" placeholder="Enter search tags" ng-model="vm.newtag">
+            <span class="input-group-btn"><button class="btn btn-primary" ng-click="vm.addTags(vm.newtag)">Add</button></span>
+         </div>
+        </div>
+         </div>
+         <div class="form-group">
+          <div class="col-md-8">
+              <span ng-repeat="tags in vm.product.tags" | orderBy>
+                  <button class="btn btn-default"
+                          style="font-size:smaller; margin-bottom:12px;"
+                          ng-click="vm.product.tags.splice($index,1); vm.saveit()">
+                      {{tags}}
+                      <span class="glyphicon glyphicon-remove"></span>
+                  </button>
+              </span>
+          </div>
+         </div>
+
+          <div class="form-group">
+              <div class="col-md-offset-2">
+                  <span>
+                      <button class="btn btn-primary"
+                          style="width:80px; margin-right:10px;"
+                          type="submit"
+                          ng-click="vm.submit(productTagsForm.$valid)">
+                      Save
+                  </button>
+                  </span>
+                  <span>
+                      <button class="btn btn-default"
+                          style="width:70px;"
+                          ng-click="vm.cancel()">
+                      Cancel
+                  </button>
+                  </span>
+              </div>
+          </div>
+
+    </fieldset>
+</form>

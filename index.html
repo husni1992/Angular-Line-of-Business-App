@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>My Product Management</title>
+
+    <!--Library scripts-->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="js_libs/angular.js"></script>
+    <script src="js_libs/angular-resource.js"></script>
+    <script src="js_libs/angular-mocks.js"></script>
+    <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="js_libs/ui-utils.js"></script> <!-- for ui mask-->
+    <script src="js_libs/ui-bootstrap-tpls-0.12.0.min.js"></script><!-- for datepicker-->
+    
+    <!--    angular charts-->
+    <script src="http://cdn.jsdelivr.net/angular.charts/0.2.6/angular-charts.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+     
+    <!--     toaster-->
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+      
+        <!--style sheets-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!--application scripts-->
+    <script src="app/app.js"></script>
+
+      <!--    directives-->
+    <script src="common/directives/customerDirective.js"></script>
+   
+    <!--services-->
+    <script src="common/services/common.services.js"></script>
+    <script src="common/services/productResourceService.js"></script>
+    <script src="common/services/productResourceMock.js"></script>
+    <script src="common/services/productService.js"></script>
+    
+    <!--product controllers-->
+    <script src="app/products/controllers/productListCtrl.js"></script>
+    <script src="app/products/controllers/productDetailCtrl.js"></script>
+    <script src="app/products/controllers/ProductEditCtrl.js"></script>
+    <script src="app/products/controllers/sendToPhpCtrl.js"></script>
+
+    <!--price controllers-->
+    <script src="app/prices/controllers/PriceAnalyticsCtrl.js"></script>
+    
+</head>
+
+<body ng-app="productManagementMainModule">
+   
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluids">
+<!--            <a class="navbar-brand" ui-sref="home">Online Store Management</a>-->
+            <div class="navbar-header">
+                <button type="button"
+                    class="navbar-toggle"
+                        data-toggle="collapse"
+                            data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="productList">Product List</a></li>
+                    <li><a ui-sref="productEdit.info({productId:0})"><i class="glyphicon glyphicon-plus"></i> Add Product</a></li>
+                    <li><a ui-sref="priceAnalytics">Price charts</a></li>
+                    <li><a ui-sref="savetophp">Save to PHP</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container"><div ui-view></div></div>
+    
+</body>
+</html>
